@@ -14,3 +14,5 @@ WORKERS: int = 2
 AUTO_RELOAD: bool = True
 
 DEBUG: bool = True
+
+DEFAULT_AVATAR: str = ""
