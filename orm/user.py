@@ -13,6 +13,7 @@ class User(Model):
     email = CharField(255)
     is_admin = BooleanField()
     avatar = CharField(255)
+    alive = BooleanField()
 
     class Meta:
         table = 'user'
@@ -28,6 +29,7 @@ class User(Model):
                 "password": self.password,
                 "email": self.email,
                 "is_admin": self.is_admin,
-                "avatar": self.avatar
+                "avatar": self.avatar,
+                "alive": self.alive
             }
         )
