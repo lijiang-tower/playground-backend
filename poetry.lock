@@ -32,6 +32,77 @@ python-versions = ">=3.6"
 typing_extensions = ">=3.7.2"
 
 [[package]]
+name = "certifi"
+version = "2021.10.8"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "chardet"
+version = "3.0.4"
+description = "Universal encoding detector for Python 2 and 3"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "charset-normalizer"
+version = "2.0.11"
+description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+category = "main"
+optional = false
+python-versions = ">=3.5.0"
+
+[package.extras]
+unicode_backport = ["unicodedata2"]
+
+[[package]]
+name = "h11"
+version = "0.8.1"
+description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "h2"
+version = "3.2.0"
+description = "HTTP/2 State-Machine based protocol implementation"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+hpack = ">=3.0,<4"
+hyperframe = ">=5.2.0,<6"
+
+[[package]]
+name = "hpack"
+version = "3.0.0"
+description = "Pure-Python HPACK header compression"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "http3"
+version = "0.6.7"
+description = "The next generation HTTP client."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+certifi = "*"
+chardet = ">=3.0.0,<4.0.0"
+h11 = ">=0.8.0,<0.9.0"
+h2 = ">=3.0.0,<4.0.0"
+idna = ">=2.0.0,<3.0.0"
+rfc3986 = ">=1.0.0,<2.0.0"
+
+[[package]]
 name = "httptools"
 version = "0.3.0"
 description = "A collection of framework independent HTTP protocol utils."
@@ -41,6 +112,22 @@ python-versions = ">=3.5.0"
 
 [package.extras]
 test = ["Cython (>=0.29.24,<0.30.0)"]
+
+[[package]]
+name = "hyperframe"
+version = "5.2.0"
+description = "HTTP/2 framing layer for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "idna"
+version = "2.10"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "iso8601"
@@ -113,6 +200,47 @@ description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "requests"
+version = "2.27.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+charset-normalizer = {version = ">=2.0.0,<2.1.0", markers = "python_version >= \"3\""}
+idna = {version = ">=2.5,<4", markers = "python_version >= \"3\""}
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
+
+[[package]]
+name = "requests-async"
+version = "0.6.2"
+description = "async-await support for `requests`."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+http3 = ">=0.6.0,<0.7.0"
+requests = ">=2.0.0,<3.0.0"
+
+[[package]]
+name = "rfc3986"
+version = "1.5.0"
+description = "Validating URI References per RFC 3986"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+idna2008 = ["idna"]
 
 [[package]]
 name = "sanic"
@@ -214,6 +342,19 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "urllib3"
+version = "1.26.8"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+
+[package.extras]
+brotli = ["brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[[package]]
 name = "uvloop"
 version = "0.16.0"
 description = "Fast implementation of asyncio event loop on top of libuv"
@@ -237,7 +378,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4e5e816331104b02c77e82dfc61816aa6eb552abe05faf83040205a7877c7445"
+content-hash = "67842891aa808575218ddbab17eb2705c58947de1dcc77c1f0aa33baedab5aa9"
 
 [metadata.files]
 aiofiles = [
@@ -251,6 +392,33 @@ aiomysql = [
 aiosqlite = [
     {file = "aiosqlite-0.17.0-py3-none-any.whl", hash = "sha256:6c49dc6d3405929b1d08eeccc72306d3677503cc5e5e43771efc1e00232e8231"},
     {file = "aiosqlite-0.17.0.tar.gz", hash = "sha256:f0e6acc24bc4864149267ac82fb46dfb3be4455f99fe21df82609cc6e6baee51"},
+]
+certifi = [
+    {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
+    {file = "certifi-2021.10.8.tar.gz", hash = "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"},
+]
+chardet = [
+    {file = "chardet-3.0.4-py2.py3-none-any.whl", hash = "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"},
+    {file = "chardet-3.0.4.tar.gz", hash = "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"},
+]
+charset-normalizer = [
+    {file = "charset-normalizer-2.0.11.tar.gz", hash = "sha256:98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"},
+    {file = "charset_normalizer-2.0.11-py3-none-any.whl", hash = "sha256:2842d8f5e82a1f6aa437380934d5e1cd4fcf2003b06fed6940769c164a480a45"},
+]
+h11 = [
+    {file = "h11-0.8.1-py2.py3-none-any.whl", hash = "sha256:f2b1ca39bfed357d1f19ac732913d5f9faa54a5062eca7d2ec3a916cfb7ae4c7"},
+    {file = "h11-0.8.1.tar.gz", hash = "sha256:acca6a44cb52a32ab442b1779adf0875c443c689e9e028f8d831a3769f9c5208"},
+]
+h2 = [
+    {file = "h2-3.2.0-py2.py3-none-any.whl", hash = "sha256:61e0f6601fa709f35cdb730863b4e5ec7ad449792add80d1410d4174ed139af5"},
+    {file = "h2-3.2.0.tar.gz", hash = "sha256:875f41ebd6f2c44781259005b157faed1a5031df3ae5aa7bcb4628a6c0782f14"},
+]
+hpack = [
+    {file = "hpack-3.0.0-py2.py3-none-any.whl", hash = "sha256:0edd79eda27a53ba5be2dfabf3b15780928a0dff6eb0c60a3d6767720e970c89"},
+    {file = "hpack-3.0.0.tar.gz", hash = "sha256:8eec9c1f4bfae3408a3f30500261f7e6a65912dc138526ea054f9ad98892e9d2"},
+]
+http3 = [
+    {file = "http3-0.6.7.tar.gz", hash = "sha256:dbf9beedc58d8bbcf6e681a9d63d9e7cd8da346e1ffb512e02e9bf097d91f0bf"},
 ]
 httptools = [
     {file = "httptools-0.3.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:4137137de8976511a392e27bfdcf231bd926ac13d375e0414e927b08217d779e"},
@@ -277,6 +445,14 @@ httptools = [
     {file = "httptools-0.3.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:074afd8afdeec0fa6786cd4a1676e0c0be23dc9a017a86647efa6b695168104f"},
     {file = "httptools-0.3.0-cp39-cp39-win_amd64.whl", hash = "sha256:2119fa619a4c53311f594f25c0205d619350fcb32140ec5057f861952e9b2b4f"},
     {file = "httptools-0.3.0.tar.gz", hash = "sha256:3f9b4856d46ba1f0c850f4e84b264a9a8b4460acb20e865ec00978ad9fbaa4cf"},
+]
+hyperframe = [
+    {file = "hyperframe-5.2.0-py2.py3-none-any.whl", hash = "sha256:5187962cb16dcc078f23cb5a4b110098d546c3f41ff2d4038a9896893bbd0b40"},
+    {file = "hyperframe-5.2.0.tar.gz", hash = "sha256:a9f5c17f2cc3c719b917c4f33ed1c61bd1f8dfac4b1bd23b7c80b3400971b41f"},
+]
+idna = [
+    {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
+    {file = "idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"},
 ]
 iso8601 = [
     {file = "iso8601-0.1.16-py2.py3-none-any.whl", hash = "sha256:906714829fedbc89955d52806c903f2332e3948ed94e31e85037f9e0226b8376"},
@@ -409,6 +585,17 @@ pytz = [
     {file = "pytz-2021.3-py2.py3-none-any.whl", hash = "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c"},
     {file = "pytz-2021.3.tar.gz", hash = "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"},
 ]
+requests = [
+    {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
+    {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
+]
+requests-async = [
+    {file = "requests-async-0.6.2.tar.gz", hash = "sha256:8f128b66dec2974aa263e24410914b1829d3e1506497364c2edfa10112f55e0b"},
+]
+rfc3986 = [
+    {file = "rfc3986-1.5.0-py2.py3-none-any.whl", hash = "sha256:a86d6e1f5b1dc238b218b012df0aa79409667bb209e58da56d0b94704e712a97"},
+    {file = "rfc3986-1.5.0.tar.gz", hash = "sha256:270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835"},
+]
 sanic = [
     {file = "sanic-21.12.1-py3-none-any.whl", hash = "sha256:53230ba1a1081e6b075e58339a47c07d2bf618119fa40ba88c69fe57c99126f1"},
     {file = "sanic-21.12.1.tar.gz", hash = "sha256:6f15ecfef47d4288aac04d8741833a7701cd94f2d4a28fc5667ce2844363152d"},
@@ -483,6 +670,10 @@ ujson = [
     {file = "ujson-5.1.0-pp38-pypy38_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:5304ad25d100d50b5bc8513ef110335df678f66c7ccf3d4728c0c3aa69e08e0c"},
     {file = "ujson-5.1.0-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:ce620a6563b21aa3fbb1658bc1bfddb484a6dad542de1efb5121eb7bb4f2b93a"},
     {file = "ujson-5.1.0.tar.gz", hash = "sha256:a88944d2f99db71a3ca0c63d81f37e55b660edde0b07216fb65a3e46403ef004"},
+]
+urllib3 = [
+    {file = "urllib3-1.26.8-py2.py3-none-any.whl", hash = "sha256:000ca7f471a233c2251c6c7023ee85305721bfdf18621ebff4fd17a8653427ed"},
+    {file = "urllib3-1.26.8.tar.gz", hash = "sha256:0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"},
 ]
 uvloop = [
     {file = "uvloop-0.16.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:6224f1401025b748ffecb7a6e2652b17768f30b1a6a3f7b44660e5b5b690b12d"},
