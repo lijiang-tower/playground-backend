@@ -38,3 +38,9 @@ class CurrentWeather(BaseModel):
 class ApiData(BaseModel):
     location: CityInfo
     current: CurrentWeather
+
+
+class WeatherRequest(BaseModel):
+    city: str
+    type: Optional[str] = 'current'  # 'current', 'history', 'forecast', 'astronomy'
+    aqi: Optional[bool] = False
